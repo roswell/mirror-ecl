@@ -1145,6 +1145,7 @@ cl_symbols[] = {
 {SYS_ "ASET", SI_ORDINARY, si_aset, -2, OBJNULL},
 {SYS_ "BASE-CHAR-P", SI_ORDINARY, si_base_char_p, 1, OBJNULL},
 {SYS_ "BASE-STRING-P", SI_ORDINARY, si_base_string_p, 1, OBJNULL},
+{SYS_ "BC-COMPILE-FROM-STREAM", SI_ORDINARY, si_bc_compile_from_stream, 1, OBJNULL},
 {SYS_ "BC-DISASSEMBLE", SI_ORDINARY, si_bc_disassemble, 1, OBJNULL},
 {SYS_ "BC-SPLIT", SI_ORDINARY, si_bc_split, 1, OBJNULL},
 {SYS_ "BC-JOIN", SI_ORDINARY, si_bc_join, 4, OBJNULL},
