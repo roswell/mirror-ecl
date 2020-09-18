@@ -739,16 +739,16 @@
       (with-compiler ("make-load-form.lsp")
         "(in-package cl-test)"
         "(eval-when (:compile-toplevel)
-      (defparameter s4.0030 (make-instance 'compiler-test-class))
-      (defparameter s5.0030 (make-instance 'compiler-test-class))
-      (setf (compiler-test-parent s5.0030) s4.0030)
-      (setf (compiler-test-children s4.0030) (list s5.0030)))"
+           (defparameter s4.0030 (make-instance 'compiler-test-class))
+           (defparameter s5.0030 (make-instance 'compiler-test-class))
+           (setf (compiler-test-parent s5.0030) s4.0030)
+           (setf (compiler-test-children s4.0030) (list s5.0030)))"
         "(defparameter a.0030 '#.s5.0030)"
         "(defparameter b.0030 '#.s4.0030)"
         "(defparameter c.0030 '#.s5.0030)"
         "(defun foo.0030 ()
-       (let ((*print-circle* t))
-         (with-output-to-string (s) (princ '#1=(1 2 3 #.s4.0030 #1#) s))))")
+           (let ((*print-circle* t))
+             (with-output-to-string (s) (princ '#1=(1 2 3 #.s4.0030 #1#) s))))")
     (declare (ignore output))
     (load file)
     (delete-file "make-load-form.lsp")
@@ -757,7 +757,8 @@
     (is (and (search "#1=(1 2 3 #<a CL-TEST::COMPILER-TEST-CLASS" str)
              (search "> #1#)" str))))
   (is (eq (compiler-test-parent a.0030) b.0030))
-  (is (eq (first (compiler-test-children b.0030)) a.0030)))
+  (is (eq (first (compiler-test-children b.0030)) a.0030))
+  (is (eq a.0030 c.0030)))
 
 ;;; Date: 9/06/2006 (Pascal Costanza)
 ;;; Fixed: 13/06/2006 (juanjo)
