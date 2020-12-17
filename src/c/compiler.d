@@ -2511,8 +2511,7 @@ compile_init_form(cl_env_ptr env, cl_index loc,
   c_env->ltf_defer_init_until = ECL_NIL;
   compile_with_load_time_forms(env, init_form, FLAG_IGNORE);
   /* ... and if it needs to be deferred, add it to c_env->ltf_being_created */
-  if (c_env->ltf_defer_init_until != ECL_NIL
-      && c_env->ltf_defer_init_until != constant) {
+  if (c_env->ltf_defer_init_until != ECL_NIL) {
     cl_object bytecodes_init = save_bytecodes(env, handle_init, current_pc(env));
     cl_object r = c_env->ltf_being_created;
     loop_for_in(r) {
